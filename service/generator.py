@@ -78,6 +78,11 @@ async def generate_test_cases(
     system_prompt = f"""You are a senior QA analyst for the "Get air pollution data" GOV.UK service.
 Your job is to generate manual test cases from a Jira ticket, following the instructions and output template exactly.
 
+CRITICAL OUTPUT RULES (never break these):
+- Every test case MUST include at least one numbered step row in the steps table. Never leave the steps table empty.
+- Every step row must have an expected result — never leave it blank or as "—" alone.
+- Write all steps before moving to the next test case — do not skip ahead.
+
 INSTRUCTIONS:
 {instructions}
 
